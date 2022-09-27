@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HydroidModelStoreContainer" CdmEntityContainer="HydroidEntities">
+    <EntitySetMapping Name="Mst_Device">
+      <EntityTypeMapping TypeName="HydroidModel.Mst_Device">
+        <MappingFragment StoreEntitySet="Mst_Device">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Device_Id" ColumnName="Device_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDeviceConsumptions">
+      <EntityTypeMapping TypeName="HydroidModel.UserDeviceConsumption">
+        <MappingFragment StoreEntitySet="UserDeviceConsumption">
+          <ScalarProperty Name="Updated_ON" ColumnName="Updated_ON" />
+          <ScalarProperty Name="Created_ON" ColumnName="Created_ON" />
+          <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddNewDeviceDetails" FunctionName="HydroidModel.Store.AddNewDeviceDetails" />
+    <FunctionImportMapping FunctionImportName="AddNewOrgDetails" FunctionName="HydroidModel.Store.AddNewOrgDetails" />
+    <FunctionImportMapping FunctionImportName="AddNewUsersDetails" FunctionName="HydroidModel.Store.AddNewUsersDetails" />
+    <FunctionImportMapping FunctionImportName="getUserData" FunctionName="HydroidModel.Store.getUserData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HydroidModel.getUserData_Result">
+          <ScalarProperty Name="selected" ColumnName="selected" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="website" ColumnName="website" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Login" FunctionName="HydroidModel.Store.Login" />
+    <EntitySetMapping Name="Sync_datum">
+      <EntityTypeMapping TypeName="HydroidModel.Sync_datum">
+        <MappingFragment StoreEntitySet="Sync_datum">
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PayLoad_ASCII" ColumnName="PayLoad_ASCII" />
+          <ScalarProperty Name="PayLoad_Base64" ColumnName="PayLoad_Base64" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Device_Id" ColumnName="Device_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

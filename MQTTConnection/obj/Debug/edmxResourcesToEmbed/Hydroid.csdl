@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HydroidModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HydroidEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Mst_Device" EntityType="HydroidModel.Mst_Device" />
+    <EntitySet Name="UserDeviceConsumptions" EntityType="HydroidModel.UserDeviceConsumption" />
+    <FunctionImport Name="AddNewDeviceDetails">
+      <Parameter Name="Selected" Mode="In" Type="String" />
+      <Parameter Name="DeviceID" Mode="In" Type="String" />
+      <Parameter Name="SerialID" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="Network" Mode="In" Type="String" />
+      <Parameter Name="PIN" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="LeakageLimit" Mode="In" Type="String" />
+      <Parameter Name="DTT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddNewOrgDetails">
+      <Parameter Name="Org_Select" Mode="In" Type="String" />
+      <Parameter Name="Org_ID" Mode="In" Type="String" />
+      <Parameter Name="Org_Name" Mode="In" Type="String" />
+      <Parameter Name="Org_Type" Mode="In" Type="String" />
+      <Parameter Name="Org_Address" Mode="In" Type="String" />
+      <Parameter Name="Org_City" Mode="In" Type="String" />
+      <Parameter Name="Org_Post" Mode="In" Type="String" />
+      <Parameter Name="Org_Country" Mode="In" Type="String" />
+      <Parameter Name="Org_ContactNumber" Mode="In" Type="String" />
+      <Parameter Name="Org_Website" Mode="In" Type="String" />
+      <Parameter Name="Apt_Select" Mode="In" Type="String" />
+      <Parameter Name="Apt_ID" Mode="In" Type="String" />
+      <Parameter Name="Apt_Name" Mode="In" Type="String" />
+      <Parameter Name="SelectOrganisation" Mode="In" Type="String" />
+      <Parameter Name="Bld_Select" Mode="In" Type="String" />
+      <Parameter Name="Bld_ID" Mode="In" Type="String" />
+      <Parameter Name="Bld_Name" Mode="In" Type="String" />
+      <Parameter Name="SelectAptComplex" Mode="In" Type="String" />
+      <Parameter Name="Floor_Select" Mode="In" Type="String" />
+      <Parameter Name="Floor_ID" Mode="In" Type="String" />
+      <Parameter Name="Floor_Name" Mode="In" Type="String" />
+      <Parameter Name="Floor_SelectOrganisation" Mode="In" Type="String" />
+      <Parameter Name="Unit_Select" Mode="In" Type="String" />
+      <Parameter Name="Unit_ID" Mode="In" Type="String" />
+      <Parameter Name="Unit_Name" Mode="In" Type="String" />
+      <Parameter Name="UnitDeviceMapping_Select" Mode="In" Type="String" />
+      <Parameter Name="SelectDevice" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddNewUsersDetails">
+      <Parameter Name="selected" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="post" Mode="In" Type="String" />
+      <Parameter Name="country" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber" Mode="In" Type="String" />
+      <Parameter Name="website" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getUserData" ReturnType="Collection(HydroidModel.getUserData_Result)" />
+    <FunctionImport Name="Login" ReturnType="Collection(String)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Sync_datum" EntityType="HydroidModel.Sync_datum" />
+  </EntityContainer>
+  <EntityType Name="Mst_Device">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Device_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Application_Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Modified_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserDeviceConsumption">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Consumption" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Updated_ON" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <ComplexType Name="getUserData_Result">
+    <Property Type="String" Name="selected" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="ID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="type" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="post" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="country" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="website" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <EntityType Name="Sync_datum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Device_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PayLoad_Base64" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PayLoad_ASCII" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Created_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Modified_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Application_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

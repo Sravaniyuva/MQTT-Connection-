@@ -1,0 +1,32 @@
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\MQTTConnection.exe.config
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\MQTTConnection.exe
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\MQTTConnection.pdb
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\MQTTnet.dll
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.CopyComplete
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.exe
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.pdb
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.dll
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.xml
+C:\Users\Admin\source\repos\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.SqlServer.xml
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\MQTTConnection.exe.config
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\MQTTConnection.exe
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\MQTTConnection.pdb
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.dll
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.SqlServer.dll
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\MQTTnet.dll
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\Newtonsoft.Json.dll
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.xml
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\EntityFramework.SqlServer.xml
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\bin\Debug\Newtonsoft.Json.xml
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.AssemblyReference.cache
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.SuggestedBindingRedirects.cache
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.CoreCompileInputs.cache
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.csproj.CopyComplete
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.exe
+C:\SRAVANI\Office\new project\MQTTConnection\MQTTConnection\MQTTConnection\obj\Debug\MQTTConnection.pdb

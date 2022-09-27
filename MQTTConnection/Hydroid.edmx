@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HydroidModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Mst_Device">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Device_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="Application_Id" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Created_By" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Modified_By" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Modified_Date" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sync_datum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Device_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="20" />
+          <Property Name="PayLoad_Base64" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayLoad_ASCII" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Created_By" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Modified_By" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Modified_Date" Type="datetime" Nullable="false" />
+          <Property Name="Application_Id" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="UserDeviceConsumption">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="20" />
+          <Property Name="DeviceID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Consumption" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Created_ON" Type="datetime" Nullable="false" />
+          <Property Name="Updated_ON" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Function Name="AddNewDeviceDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Selected" Type="varchar" Mode="In" />
+          <Parameter Name="DeviceID" Type="varchar" Mode="In" />
+          <Parameter Name="SerialID" Type="varchar" Mode="In" />
+          <Parameter Name="Type" Type="varchar" Mode="In" />
+          <Parameter Name="Network" Type="varchar" Mode="In" />
+          <Parameter Name="PIN" Type="varchar" Mode="In" />
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="LeakageLimit" Type="varchar" Mode="In" />
+          <Parameter Name="DTT" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddNewOrgDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Org_Select" Type="varchar" Mode="In" />
+          <Parameter Name="Org_ID" Type="varchar" Mode="In" />
+          <Parameter Name="Org_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Org_Type" Type="varchar" Mode="In" />
+          <Parameter Name="Org_Address" Type="varchar" Mode="In" />
+          <Parameter Name="Org_City" Type="varchar" Mode="In" />
+          <Parameter Name="Org_Post" Type="varchar" Mode="In" />
+          <Parameter Name="Org_Country" Type="varchar" Mode="In" />
+          <Parameter Name="Org_ContactNumber" Type="varchar" Mode="In" />
+          <Parameter Name="Org_Website" Type="varchar" Mode="In" />
+          <Parameter Name="Apt_Select" Type="varchar" Mode="In" />
+          <Parameter Name="Apt_ID" Type="varchar" Mode="In" />
+          <Parameter Name="Apt_Name" Type="varchar" Mode="In" />
+          <Parameter Name="SelectOrganisation" Type="varchar" Mode="In" />
+          <Parameter Name="Bld_Select" Type="varchar" Mode="In" />
+          <Parameter Name="Bld_ID" Type="varchar" Mode="In" />
+          <Parameter Name="Bld_Name" Type="varchar" Mode="In" />
+          <Parameter Name="SelectAptComplex" Type="varchar" Mode="In" />
+          <Parameter Name="Floor_Select" Type="varchar" Mode="In" />
+          <Parameter Name="Floor_ID" Type="varchar" Mode="In" />
+          <Parameter Name="Floor_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Floor_SelectOrganisation" Type="varchar" Mode="In" />
+          <Parameter Name="Unit_Select" Type="varchar" Mode="In" />
+          <Parameter Name="Unit_ID" Type="varchar" Mode="In" />
+          <Parameter Name="Unit_Name" Type="varchar" Mode="In" />
+          <Parameter Name="UnitDeviceMapping_Select" Type="varchar" Mode="In" />
+          <Parameter Name="SelectDevice" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddNewUsersDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="selected" Type="varchar" Mode="In" />
+          <Parameter Name="ID" Type="varchar" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="type" Type="varchar" Mode="In" />
+          <Parameter Name="city" Type="varchar" Mode="In" />
+          <Parameter Name="post" Type="varchar" Mode="In" />
+          <Parameter Name="country" Type="varchar" Mode="In" />
+          <Parameter Name="ContactNumber" Type="varchar" Mode="In" />
+          <Parameter Name="website" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getUserData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="HydroidModelStoreContainer">
+          <EntitySet Name="Mst_Device" EntityType="Self.Mst_Device" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sync_datum" EntityType="Self.Sync_datum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDeviceConsumption" EntityType="Self.UserDeviceConsumption" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HydroidModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HydroidEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Mst_Device" EntityType="HydroidModel.Mst_Device" />
+          <EntitySet Name="UserDeviceConsumptions" EntityType="HydroidModel.UserDeviceConsumption" />
+          <FunctionImport Name="AddNewDeviceDetails">
+            <Parameter Name="Selected" Mode="In" Type="String" />
+            <Parameter Name="DeviceID" Mode="In" Type="String" />
+            <Parameter Name="SerialID" Mode="In" Type="String" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Network" Mode="In" Type="String" />
+            <Parameter Name="PIN" Mode="In" Type="String" />
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="LeakageLimit" Mode="In" Type="String" />
+            <Parameter Name="DTT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddNewOrgDetails">
+            <Parameter Name="Org_Select" Mode="In" Type="String" />
+            <Parameter Name="Org_ID" Mode="In" Type="String" />
+            <Parameter Name="Org_Name" Mode="In" Type="String" />
+            <Parameter Name="Org_Type" Mode="In" Type="String" />
+            <Parameter Name="Org_Address" Mode="In" Type="String" />
+            <Parameter Name="Org_City" Mode="In" Type="String" />
+            <Parameter Name="Org_Post" Mode="In" Type="String" />
+            <Parameter Name="Org_Country" Mode="In" Type="String" />
+            <Parameter Name="Org_ContactNumber" Mode="In" Type="String" />
+            <Parameter Name="Org_Website" Mode="In" Type="String" />
+            <Parameter Name="Apt_Select" Mode="In" Type="String" />
+            <Parameter Name="Apt_ID" Mode="In" Type="String" />
+            <Parameter Name="Apt_Name" Mode="In" Type="String" />
+            <Parameter Name="SelectOrganisation" Mode="In" Type="String" />
+            <Parameter Name="Bld_Select" Mode="In" Type="String" />
+            <Parameter Name="Bld_ID" Mode="In" Type="String" />
+            <Parameter Name="Bld_Name" Mode="In" Type="String" />
+            <Parameter Name="SelectAptComplex" Mode="In" Type="String" />
+            <Parameter Name="Floor_Select" Mode="In" Type="String" />
+            <Parameter Name="Floor_ID" Mode="In" Type="String" />
+            <Parameter Name="Floor_Name" Mode="In" Type="String" />
+            <Parameter Name="Floor_SelectOrganisation" Mode="In" Type="String" />
+            <Parameter Name="Unit_Select" Mode="In" Type="String" />
+            <Parameter Name="Unit_ID" Mode="In" Type="String" />
+            <Parameter Name="Unit_Name" Mode="In" Type="String" />
+            <Parameter Name="UnitDeviceMapping_Select" Mode="In" Type="String" />
+            <Parameter Name="SelectDevice" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddNewUsersDetails">
+            <Parameter Name="selected" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="city" Mode="In" Type="String" />
+            <Parameter Name="post" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="String" />
+            <Parameter Name="ContactNumber" Mode="In" Type="String" />
+            <Parameter Name="website" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getUserData" ReturnType="Collection(HydroidModel.getUserData_Result)" />
+          <FunctionImport Name="Login" ReturnType="Collection(String)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Sync_datum" EntityType="HydroidModel.Sync_datum" />
+        </EntityContainer>
+        <EntityType Name="Mst_Device">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Device_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Application_Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Modified_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Modified_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserDeviceConsumption">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Consumption" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Created_ON" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updated_ON" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <ComplexType Name="getUserData_Result">
+          <Property Type="String" Name="selected" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="type" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="post" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="country" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="website" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <EntityType Name="Sync_datum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Device_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PayLoad_Base64" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayLoad_ASCII" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Modified_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Modified_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Application_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HydroidModelStoreContainer" CdmEntityContainer="HydroidEntities">
+          <EntitySetMapping Name="Mst_Device">
+            <EntityTypeMapping TypeName="HydroidModel.Mst_Device">
+              <MappingFragment StoreEntitySet="Mst_Device">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Device_Id" ColumnName="Device_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDeviceConsumptions">
+            <EntityTypeMapping TypeName="HydroidModel.UserDeviceConsumption">
+              <MappingFragment StoreEntitySet="UserDeviceConsumption">
+                <ScalarProperty Name="Updated_ON" ColumnName="Updated_ON" />
+                <ScalarProperty Name="Created_ON" ColumnName="Created_ON" />
+                <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddNewDeviceDetails" FunctionName="HydroidModel.Store.AddNewDeviceDetails" />
+          <FunctionImportMapping FunctionImportName="AddNewOrgDetails" FunctionName="HydroidModel.Store.AddNewOrgDetails" />
+          <FunctionImportMapping FunctionImportName="AddNewUsersDetails" FunctionName="HydroidModel.Store.AddNewUsersDetails" />
+          <FunctionImportMapping FunctionImportName="getUserData" FunctionName="HydroidModel.Store.getUserData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HydroidModel.getUserData_Result">
+                <ScalarProperty Name="selected" ColumnName="selected" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="post" ColumnName="post" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="website" ColumnName="website" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Login" FunctionName="HydroidModel.Store.Login" />
+          <EntitySetMapping Name="Sync_datum">
+            <EntityTypeMapping TypeName="HydroidModel.Sync_datum">
+              <MappingFragment StoreEntitySet="Sync_datum">
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PayLoad_ASCII" ColumnName="PayLoad_ASCII" />
+                <ScalarProperty Name="PayLoad_Base64" ColumnName="PayLoad_Base64" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Device_Id" ColumnName="Device_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
